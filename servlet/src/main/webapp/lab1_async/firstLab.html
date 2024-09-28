@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button, input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #message, #nameValidation {
+            margin-top: 20px;
+            font-size: 16px;
+            color: green;
+        }
+    </style>
+    <script>
+        // Load message from message.txt
+        function loadMessage() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("message").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open("GET", "message.txt", true);
+            xhr.send();
+        }
+
+
+
+        // Validate name by sending an AJAX request
+        function ValidateName() {
+            var name = document.getElementById("name").value;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("nameValidation").innerHTML = xhr.responseText;
+              out.println(xhr.responseText)
+                }
+            };
+            xhr.open("GET", "Asynchronous/ValidateName?name=" + encodeURIComponent(name) + "&t=" + new Date().getTime(), true);
+            xhr.send();
+        }
+
+        // Automatically validate the name every second
+        function startValidationInterval() {
+            setInterval(validateName, 1000);
+        }
+
+
+
+
+        // Update schedule from schedule.txt every 5 seconds
+        function updateSchedule() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("schedule").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open("GET", "schedule.txt", true);
+            xhr.send();
+        }
+
+        // Start schedule updates when the page loads
+        window.onload = function() {
+            updateSchedule(); // Update schedule immediately on load
+            setInterval(updateSchedule, 5000); // Continue updating every 5 seconds
+        };
+    </script>
+</head>
+
+<body>
+<h1>AJAX and Asynchronous Programming</h1>
+
+<!-- Section for loading message -->
+<button onclick="loadMessage()">Load Message</button>
+<div id="message"></div>
+
+<!-- Section for name validation -->
+<label for="name">Enter Your Name:</label>
+<input type="text" id="name" onblur="ValidateName()">
+<div id="nameValidation"></div>
+
+<label for="password">Enter Your Password:</label>
+<input type="password" id="password">
+
+<!-- Section for schedule update -->
+<h2>Schedule</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Activity Name</th>
+        <th>Location</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tbody id="schedule">
+    <!-- Schedule data will be inserted here -->
+    </tbody>
+</table>
+</body>
+</html>

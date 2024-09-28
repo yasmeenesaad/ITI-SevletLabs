@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX Validation</title>
+  <script>
+    var myFunctions = {
+        validateName: function() {
+            var name = document.getElementById("name").value;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("nameValidation").innerHTML = xhr.responseText;
+                }
+            };
+            // Adjust the URL to correctly point to your servlet
+            xhr.open("GET", "Asyncronous/validateName?name=" + encodeURIComponent(name) + "&t=" + new Date().getTime(), true);
+            xhr.send();
+        },
+
+        startValidationInterval: function() {
+            // Call validateName every 1 second (1000 milliseconds)
+            setInterval(myFunctions.validateName, 1000);
+        }
+    };
+
+    // Start the automatic update when the page loads
+    window.onload = myFunctions.startValidationInterval;
+  </script>
+</head>
+<body>
+<label for="name">Enter Your Name:</label>
+<input type="text" id="name">
+<div id="nameValidation"></div>
+<br>
+<label for="password">Enter Your Password:</label>
+<input type="password" id="password">
+</body>
+</html>

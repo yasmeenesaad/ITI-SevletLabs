@@ -1,0 +1,221 @@
+<web-app xmlns= "https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation= "https://jakarta.ee/xml/ns/jakartaee
+https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version= "5.0"
+         metadata-complete= "false">
+<!--  (metadata-complete= "false")  means if you found any annotation any where override this -->
+
+
+    <servlet>
+        <servlet-name>AttributeSetter</servlet-name>
+        <servlet-class>com.hello.AttributeSetter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttributeSetter</servlet-name>
+        <url-pattern>/AttributeSetter</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AttributeGetter</servlet-name>
+        <servlet-class>com.hello.AttributeGetter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttributeGetter</servlet-name>
+        <url-pattern>/AttributeGetter</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Testing</servlet-name>
+        <servlet-class>com.hello.HelloServlet</servlet-class>
+
+        <init-param>
+            <param-name>country</param-name>
+            <param-value>egypt</param-value>
+        </init-param>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>jasmine</param-value>
+        </init-param>
+        <init-param>
+            <param-name>age</param-name>
+            <param-value>24</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Testing</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FirstGetAndPost</servlet-name>
+        <servlet-class>com.hello.httpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FirstGetAndPost</servlet-name>
+        <url-pattern>/FirstGetAndPost</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logServlet</servlet-name>
+        <servlet-class>com.hello.logServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>logServlet</servlet-name>
+        <url-pattern>/loginURL</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <servlet-class>com.hello.WelcomeServlet</servlet-class>
+    </servlet>
+
+<!--    <display-name>welcome servlet web page</display-name>-->
+<!--    <description>hello iam welcome servlet</description>-->
+
+    <servlet-mapping>
+        <servlet-name>WelcomeServlet</servlet-name>
+        <url-pattern>/WelcomeServletURL</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SayHelloServlet</servlet-name>
+        <servlet-class>com.hello.SayHelloServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SayHelloServlet</servlet-name>
+        <url-pattern>/SayHelloServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WelcomeServlet2</servlet-name>
+        <servlet-class>com.hello.WelcomeServlet2</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>WelcomeServlet2</servlet-name>
+        <url-pattern>/WelcomeServlet2</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>LoginDB</servlet-name>
+        <servlet-class>com.hello.LoginDB</servlet-class>
+
+        <init-param>
+            <param-name>dbUrl</param-name>
+            <param-value>jdbc:mysql://localhost:3366/mydb</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbUser</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPassword</param-name>
+            <param-value>4520</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginDB</servlet-name>
+        <url-pattern>/LoginDB</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>com.hello.Registration</servlet-class>
+
+        <init-param>
+            <param-name>dbUrl</param-name>
+            <param-value>jdbc:mysql://localhost:3366/mydb</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbUser</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPassword</param-name>
+            <param-value>4520</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/Registration</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>com.hello.Search</servlet-class>
+
+        <init-param>
+            <param-name>dbUrl</param-name>
+            <param-value>jdbc:mysql://localhost:3366/mydb</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbUser</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPassword</param-name>
+            <param-value>4520</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>SQLTool</servlet-name>
+        <servlet-class>com.hello.SQLTool</servlet-class>
+
+        <init-param>
+            <param-name>dbUrl</param-name>
+            <param-value>jdbc:mysql://localhost:3366/mydb</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbUser</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPassword</param-name>
+            <param-value>4520</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SQLTool</servlet-name>
+        <url-pattern>/SQLTool</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AddCookieServlet</servlet-name>
+        <servlet-class>com.hello.AddCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCookieServlet</servlet-name>
+        <url-pattern>/AddCookieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RetrieveCookieServlet</servlet-name>
+        <servlet-class>com.hello.RetrieveCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RetrieveCookieServlet</servlet-name>
+        <url-pattern>/RetrieveCookieServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>home.html</welcome-file>
+    </welcome-file-list>
+</web-app>

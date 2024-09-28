@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Update</title>
+    <script>
+        function updateSchedule() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("schedule").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open("GET", "schedule.txt", true);
+            xhr.send();
+        }
+        setInterval(updateSchedule, 5000); // Update every 5 seconds
+    </script>
+</head>
+<body onload="updateSchedule()">
+<table border="1">
+    <thead>
+    <tr>
+        <th>Activity Name</th>
+        <th>Location</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tbody id="schedule">
+    <!-- Schedule data will be inserted here -->
+    </tbody>
+</table>
+</body>
+</html>
